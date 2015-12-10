@@ -43,7 +43,6 @@ $(document).ready(function(){
 
 ##配置项
 
-**mode**
 以下参数全部为默认值
 ```
 $('.hiSlider').hiSlider({
