@@ -13,12 +13,12 @@ Written by: hishion
 
 
 ```html
+<!-- hiSlider CSS file -->
+<link href="css/jquery.hiSlider.min.css" rel="stylesheet" />
 <!-- jQuery library -->
 <script src="js/jquery.1.9.1.js"></script>
 <!-- hiSlider Javascript file -->
-<script src="js/jquery.hiSlider.js"></script>
-<!-- hiSlider CSS file -->
-<link href="css/jquery.hiSlider.css" rel="stylesheet" />
+<script src="js/jquery.hiSlider.min.js"></script>
 ```
 
 ###Step 2: 编写html
