@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery.hiSlider.js</title>
+<link rel="stylesheet" href="css/jquery.hiSlider.css">
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 14px/2 'Microsoft YaHei', 'Arial';
+}
+li{
+    list-style: none;
+}
+li img{
+    display: block;
+    margin: 0 auto;
+}
+#wrap{
+    width: 80%;
+    min-width: 300px;
+    margin: 10px auto 80px;
+    background: #fefefe;
+}
+h1{
+    font-size: 24px;
+    text-align: center;
+}
+h2{
+    font-size: 20px;
+    padding: 10px 0;
+    margin-top: 20px;
+    font-weight: 500;
+}
+h3{
+    margin-top: 30px;
+    font-size: 16px;
+}
+pre{
+    background: #efefef;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-family: Tahoma, Arial
+}
+.hiSlider{
+    overflow: hidden;
+    height: 280px;
+    width: 500px;
+    background: #eee;
+}
+.hiSlider-item{
+    float: left;
+}
+
+</style>
+</head>
+<body>
+
+<div id="wrap">
+    <h1>jquery.hiSlider.js 插件使用说明及示例</h1>
+    <h2>example1: 默认设置</h2>
+    <ul class="hiSlider hiSlider1">
+        <li data-title="11111" class="hiSlider-item"><img src="images/1.jpg" alt="11111"></li>
+        <li data-title="22222" class="hiSlider-item"><img src="images/2.jpg" alt="22222"></li>
+        <li data-title="33333" class="hiSlider-item"><img src="images/3.jpg" alt="33333"></li>
+        <li data-title="44444" class="hiSlider-item"><img src="images/4.jpg" alt="44444"></li>
+        <li data-title="55555" class="hiSlider-item"><img src="images/5.jpg" alt="55555"></li>
+    </ul>
+
+    <h2>example2: 弹性布局 + 淡入淡出</h2>
+    <ul class="hiSlider hiSlider2">
+        <li class="hiSlider-item"><img src="images/1.jpg" alt="11111"></li>
+        <li class="hiSlider-item"><img src="images/2.jpg" alt="22222"></li>
+        <li class="hiSlider-item"><img src="images/3.jpg" alt="33333"></li>
+        <li class="hiSlider-item"><img src="images/4.jpg" alt="44444"></li>
+        <li class="hiSlider-item"><img src="images/5.jpg" alt="55555"></li>
+    </ul>
+
+    <h2>example3: 支持触摸事件 + 弹性布局 (请在移动端测试)</h2>
+    <ul class="hiSlider hiSlider3">
+        <li class="hiSlider-item"><img src="images/1.jpg" alt="11111"></li>
+        <li class="hiSlider-item"><img src="images/2.jpg" alt="22222"></li>
+        <li class="hiSlider-item"><img src="images/3.jpg" alt="33333"></li>
+        <li class="hiSlider-item"><img src="images/4.jpg" alt="44444"></li>
+        <li class="hiSlider-item"><img src="images/5.jpg" alt="55555"></li>
+    </ul>
+
+    <h2>example4: 改变方向</h2>
+    <ul class="hiSlider hiSlider4">
+        <li data-title="11111" class="hiSlider-item"><img src="images/1.jpg" alt="11111"></li>
+        <li data-title="22222" class="hiSlider-item"><img src="images/2.jpg" alt="22222"></li>
+        <li data-title="33333" class="hiSlider-item"><img src="images/3.jpg" alt="33333"></li>
+        <li data-title="44444" class="hiSlider-item"><img src="images/4.jpg" alt="44444"></li>
+        <li data-title="55555" class="hiSlider-item"><img src="images/5.jpg" alt="55555"></li>
+    </ul>
+
+<h3>参数说明：</h3>
+<pre>
+//以下参数全部为默认值
+$('.hiSlider').hiSlider({
+    //开始索引 0开始
+    startSlide: 0,
+    //子元素选择器
+    item: '.hiSlider-item',
+    //是否全屏
+    isFullScreen: false,
+    //是否自适应
+    isFlexible: false,
+    //是否支持触摸 html5 transform:
+    isSupportTouch: '__proto__' in {},
+    //是否显示分页按钮
+    isShowPage: true,
+    //是否显示标题栏
+    isShowTitle: true,
+    //标题文本存放的属性 或者回调函数(需要返回值)
+    titleAttr: 'data-title',
+    //是否显示左右控制按钮
+    isShowControls: true,
+    //是否自动播放
+    isAuto: true,
+    //自动播放间隔时间
+    intervalTime: 5000,
+    //特效时间 
+    affectTime: 300,
+    //特效类型 string : fade || move
+    mode: 'move',
+    //方向 string: left || top
+    direction: 'left',
+    //开始滑动回调
+    onSwipeStart: $.noop,
+    //滑动中回调
+    onSwipeMove: $.noop,
+    //正常滑动的最小值
+    minSwipeLength: 30,
+    //滑动取消回调 和 minSwipeLength值有关
+    onSwipeCancel: $.noop,
+    //触摸结束回调 (正常触摸)
+    onSwipeEnd: $.noop,
+    //向左滑动回调
+    onSwipeLeft: $.noop,
+    //向右滑动回调
+    onSwipeRight: $.noop,
+    //向上滑动回调
+    onSwipeTop: $.noop,
+    //向下滑动回调
+    onSwipeBottom: $.noop,
+    //初始化后回调
+    onInited:  $.noop,
+    //运动前回调
+    onMoveBefore: $.noop,
+    //运动后回调
+    onMoveAfter: $.noop,
+    //分页选中回调
+    onSelected: $.noop
+});  
+</pre>
+
+<p class="remark">
+    如蒙转载请注明出处，制作人: hishion 
+</p>
+
+</div>
+
+
+
+<script src="js/jquery.1.9.1.js"></script>
+<script src="js/jquery.hiSlider.js"></script>
+<script>
+    $('.hiSlider1').hiSlider();
+    $('.hiSlider2').hiSlider({
+        isFlexible: true,
+        mode: 'fade',
+        isSupportTouch: false,
+        isShowTitle: false,
+        isShowPage: false,
+        titleAttr: function(curIdx){
+            return $('img', this).attr('alt');
+        }
+    });
+    $('.hiSlider3').hiSlider({
+        isFlexible: true,
+        isSupportTouch: true,
+        titleAttr: function(curIdx){
+            return $('img', this).attr('alt');
+        }
+    });
+    $('.hiSlider4').hiSlider({
+        startSlide: 2,
+        direction: 'top'
+    });
+</script>
+</body>
+</html>
