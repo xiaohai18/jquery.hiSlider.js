@@ -294,19 +294,6 @@ example:
                     css.left = -(start*size.width);
                     size.float = 'left';
                 }
-                /*if(this.options.isSupportTouch){
-                    if(this.options.direction == 'top'){
-                        css.transform = 'translateY(-'+(start*size.height)+'px)';
-                    }else{
-                        css.transform = 'translateX(-'+(start*size.width)+'px)';
-                    }
-                }else{
-                    if(this.options.direction == 'top'){
-                        css.top = -(start*size.height);
-                    }else{
-                        css.left = -(start*size.width);
-                    }
-                }*/
                 css.position = 'relative';
             }
             return {
@@ -317,6 +304,7 @@ example:
         },
         autoPlay: function(){
             var self = this;
+            if(this.$item.length <= 1)return;
             clearTimeout(self.playTimer);
             self.playTimer = setTimeout($.proxy(self, self.options.mode), self.options.intervalTime);
         },
@@ -329,6 +317,7 @@ example:
             if(!this.options.isShowPage || !this.$pages)return;
             var self = this;
             $('a', this.$pages).on('click', function(){
+                if($(this).hasClass('active'))return;
                 self.curIndex = $(this).index();
                 self.options.onSelected.call(this, self.curIndex);
                 self[self.options.mode+'Prev'](true);
