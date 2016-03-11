@@ -3,7 +3,7 @@
 ##js焦点图插件，支持移动端
 
 
-在线演示：[http://www.html888.com/hiSlider](http://www.html888.com/hiSlider/)
+在线演示：[http://www.byex.cn/hiSlider](http://www.byex.cn/hiSlider/)
 
 Written by: hishion
 
